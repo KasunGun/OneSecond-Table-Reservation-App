@@ -2,6 +2,7 @@ package com.example.letseat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,12 +29,19 @@ public class login extends AppCompatActivity {
                 final String passwordText = password.getText().toString();
 
                 if (userNameText.isEmpty() || passwordText.isEmpty()){
-                    Toast.makeText(Login.this, "Please enter User Name or Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(login.this, "Please enter User Name or Password", Toast.LENGTH_SHORT).show();
                 }
                 else{
 
                 }
 
+            }
+        });
+
+        registerNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(login.this, Register.class));
             }
         });
     }
