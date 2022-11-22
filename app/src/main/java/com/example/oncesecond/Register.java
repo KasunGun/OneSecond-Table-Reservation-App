@@ -1,7 +1,4 @@
-package com.example.letseat;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.oncesecond;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,7 +37,6 @@ public class Register extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final String userNameText = userName.getText().toString();
                 final String passwordText = password.getText().toString();
                 final String confirmPasswordText = confirmPassword.getText().toString();
@@ -56,7 +54,8 @@ public class Register extends AppCompatActivity {
                     else{
                         databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
+
                                 if (snapshot.hasChild(userNameText)){
                                     Toast.makeText(Register.this, "This user already exists", Toast.LENGTH_SHORT).show();
                                 }
@@ -70,24 +69,25 @@ public class Register extends AppCompatActivity {
                                     Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
                                     finish();
                                 }
+
                             }
 
                             @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                            public void onCancelled(@androidx.annotation.NonNull DatabaseError error) {
 
                             }
                         });
 
                     }
                 }
-
             }
         });
 
         loginNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Register.this, login.class));
+                Intent login_intent = new Intent(Register.this, Login.class);
+                startActivity(login_intent);
             }
         });
     }

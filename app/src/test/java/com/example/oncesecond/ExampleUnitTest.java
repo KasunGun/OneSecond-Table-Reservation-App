@@ -1,4 +1,4 @@
-package com.example.letseat;
+package com.example.oncesecond;
 
 import org.junit.Test;
 

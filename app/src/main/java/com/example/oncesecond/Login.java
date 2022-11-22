@@ -1,5 +1,6 @@
-package com.example.letseat;
+package com.example.oncesecond;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,11 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class login extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://console.firebase.google.com/project/lets-eat-9573e/database/lets-eat-9573e-default-rtdb/data/~2F");
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class login extends AppCompatActivity {
                 final String passwordText = password.getText().toString();
 
                 if (userNameText.isEmpty() || passwordText.isEmpty()){
-                    Toast.makeText(login.this, "Please enter User Name or Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Please enter User Name or Password", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -50,16 +50,16 @@ public class login extends AppCompatActivity {
                                 final String getPassword = snapshot.child(userNameText).child("password").getValue(String.class);
 
                                 if (getPassword.equals(passwordText)){
-                                    Toast.makeText(login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(login.this, FullscreenActivity.class));
+                                    startActivity(new Intent(Login.this, MainActivity.class));
                                 }
                                 else {
-                                    Toast.makeText(login.this, "Error while logging in", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Error while logging in", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else{
-                                Toast.makeText(login.this, "This user already exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "This user already exists", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -69,14 +69,6 @@ public class login extends AppCompatActivity {
                         }
                     });
                 }
-
-            }
-        });
-
-        registerNowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(login.this, Register.class));
             }
         });
     }
