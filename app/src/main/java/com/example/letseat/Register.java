@@ -1,5 +1,6 @@
 package com.example.letseat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,8 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Register extends AppCompatActivity {
 
@@ -50,11 +54,29 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        String fullName = firstNameText + lastNameText;
-                        databaseReference.child("Users").child(userNameText).child("Name").setValue(fullName);
-                        databaseReference.child("Users").child(userNameText).child("password").setValue(passwordText);
-                        databaseReference.child("Users").child(userNameText).child("contact_number").setValue(phoneNumberText);
-                        databaseReference.child("Users").child(userNameText).child("email").setValue(userNameText);
+                        databaseReference.child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.hasChild(userNameText)){
+                                    Toast.makeText(Register.this, "This user already exists", Toast.LENGTH_SHORT).show();
+                                }
+                                else{
+                                    String fullName = firstNameText + lastNameText;
+                                    databaseReference.child("Users").child(userNameText).child("Name").setValue(fullName);
+                                    databaseReference.child("Users").child(userNameText).child("password").setValue(passwordText);
+                                    databaseReference.child("Users").child(userNameText).child("contact_number").setValue(phoneNumberText);
+                                    databaseReference.child("Users").child(userNameText).child("email").setValue(userNameText);
+
+                                    Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
 
                     }
                 }
