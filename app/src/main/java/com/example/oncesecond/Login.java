@@ -1,8 +1,8 @@
 package com.example.oncesecond;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
