@@ -67,6 +67,7 @@ public class Register extends AppCompatActivity {
                                     databaseReference.child("Users").child(userNameText).child("email").setValue(userNameText);
 
                                     Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(Register.this, VerifyAccount.class));
                                     finish();
                                 }
 
