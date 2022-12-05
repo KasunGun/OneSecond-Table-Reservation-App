@@ -18,7 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Register extends AppCompatActivity {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://console.firebase.google.com/project/lets-eat-9573e/database/lets-eat-9573e-default-rtdb/data/~2F");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lets-eat-9573e-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class Register extends AppCompatActivity {
                 final String lastNameText = lastName.getText().toString();
                 final String phoneNumberText = phoneNumber.getText().toString();
 
-                if (userNameText.isEmpty() || passwordText.isEmpty() || firstNameText.isEmpty() || lastNameText.isEmpty() || confirmPasswordText.isEmpty()){
+                if (phoneNumberText.isEmpty() || passwordText.isEmpty() || firstNameText.isEmpty() || lastNameText.isEmpty() || confirmPasswordText.isEmpty()){
                     Toast.makeText(Register.this, "Please Fill all the inputs", Toast.LENGTH_SHORT).show();
                 }
                 else{
@@ -56,15 +56,15 @@ public class Register extends AppCompatActivity {
                             @Override
                             public void onDataChange(@androidx.annotation.NonNull DataSnapshot snapshot) {
 
-                                if (snapshot.hasChild(userNameText)){
+                                if (snapshot.hasChild(phoneNumberText)){
                                     Toast.makeText(Register.this, "This user already exists", Toast.LENGTH_SHORT).show();
                                 }
                                 else{
                                     String fullName = firstNameText + lastNameText;
-                                    databaseReference.child("Users").child(userNameText).child("Name").setValue(fullName);
-                                    databaseReference.child("Users").child(userNameText).child("password").setValue(passwordText);
-                                    databaseReference.child("Users").child(userNameText).child("contact_number").setValue(phoneNumberText);
-                                    databaseReference.child("Users").child(userNameText).child("email").setValue(userNameText);
+                                    databaseReference.child("Users").child(phoneNumberText).child("Name").setValue(fullName);
+                                    databaseReference.child("Users").child(phoneNumberText).child("password").setValue(passwordText);
+                                    databaseReference.child("Users").child(phoneNumberText).child("contact_number").setValue(phoneNumberText);
+                                    databaseReference.child("Users").child(phoneNumberText).child("email").setValue(userNameText);
 
                                     Toast.makeText(Register.this, "User Created Successfully", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(Register.this, VerifyAccount.class));
