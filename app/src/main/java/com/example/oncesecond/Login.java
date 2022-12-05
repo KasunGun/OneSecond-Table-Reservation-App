@@ -21,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://console.firebase.google.com/project/lets-eat-9573e/database/lets-eat-9573e-default-rtdb/data/~2F");
+    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://lets-eat-9573e-default-rtdb.firebaseio.com/");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +52,14 @@ public class Login extends AppCompatActivity {
                                 if (getPassword.equals(passwordText)){
                                     Toast.makeText(Login.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
 
-                                    startActivity(new Intent(Login.this, MainActivity.class));
+                                    startActivity(new Intent(Login.this, Permission.class));
                                 }
                                 else {
                                     Toast.makeText(Login.this, "Error while logging in", Toast.LENGTH_SHORT).show();
                                 }
                             }
                             else{
-                                Toast.makeText(Login.this, "This user already exists", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "This user does not exist in the database", Toast.LENGTH_SHORT).show();
                             }
                         }
 

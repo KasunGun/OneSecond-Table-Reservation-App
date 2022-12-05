@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OnceSecond</string>
+    <string name="title_activity_pick_aplace">pickAPlace</string>
 </resources>
