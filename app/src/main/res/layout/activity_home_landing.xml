@@ -30,4 +30,12 @@
         app:menu="@menu/bottom_nav_menu"
         />
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/homeLandingNavigation"
+        android:layout_width="409dp"
+        android:layout_height="673dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
