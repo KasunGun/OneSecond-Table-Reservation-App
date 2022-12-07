@@ -1,5 +1,7 @@
 package com.example.oncesecond;
 
+import static androidx.databinding.DataBindingUtil.setContentView;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -25,7 +27,7 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     public HomeFragment() {
-        // Required empty public constructor
+//        setContentView(R.layout.fragment_home);
     }
 
     /**
