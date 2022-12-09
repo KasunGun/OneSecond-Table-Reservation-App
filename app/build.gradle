@@ -54,7 +54,9 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:31.1.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.gms:play-services:12.0.1'
+//    implementation 'com.google.firebase:firebase-analytics-impl:16.3.0'
 
     // navigation
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
