@@ -58,6 +58,8 @@ dependencies {
 //    implementation 'com.google.android.gms:play-services:12.0.1'
 //    implementation 'com.google.firebase:firebase-analytics-impl:16.3.0'
 
+    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+
     // navigation
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
