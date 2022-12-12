@@ -21,6 +21,8 @@ public class PickPlaceLanding extends FragmentActivity implements OnMapReadyCall
     private ActivityPickPlaceLandingBinding binding;
 
     ImageButton HomeSegment;
+    ImageButton QRScannerButton;
+    ImageButton HotelViewButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +37,27 @@ public class PickPlaceLanding extends FragmentActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
 
         HomeSegment = findViewById(R.id.homeButton);
+        QRScannerButton = findViewById(R.id.menuButton);
+        HotelViewButton = findViewById(R.id.hotelsButton);
 
         HomeSegment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PickPlaceLanding.this, HomeActivity.class));
+            }
+        });
+
+        QRScannerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PickPlaceLanding.this, QRScanner.class));
+            }
+        });
+
+        HotelViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PickPlaceLanding.this, HotelView.class));
             }
         });
     }
