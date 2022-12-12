@@ -35,7 +35,7 @@ public class PickPlaceLanding extends FragmentActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
 
         HomeSegment = findViewById(R.id.homeButton);
-        
+
         HomeSegment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
