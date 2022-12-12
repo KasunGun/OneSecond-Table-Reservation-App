@@ -7,39 +7,39 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity {
+public class HotelView extends AppCompatActivity {
 
-    ImageButton HotelViewButton;
+    ImageButton HomeSegment;
     ImageButton QRScannerButton;
     ImageButton FinderButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_hotel_view);
 
-        HotelViewButton = findViewById(R.id.hotelsButton);
+        HomeSegment = findViewById(R.id.homeButton);
         QRScannerButton = findViewById(R.id.menuButton);
         FinderButton = findViewById(R.id.finderButton);
 
-        HotelViewButton.setOnClickListener(new View.OnClickListener() {
+        HomeSegment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, HotelView.class));
+                startActivity(new Intent(HotelView.this, HomeActivity.class));
             }
         });
 
         QRScannerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, QRScanner.class));
+                startActivity(new Intent(HotelView.this, QRScanner.class));
             }
         });
 
         FinderButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this, PickPlaceLanding.class));
+                startActivity(new Intent(HotelView.this, PickPlaceLanding.class));
             }
         });
     }
