@@ -1,21 +1,26 @@
 package com.example.oncesecond;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
 import androidx.fragment.app.FragmentActivity;
 
-import android.os.Bundle;
-
+import com.example.oncesecond.databinding.ActivityPickPlaceLandingBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.oncesecond.databinding.ActivityPickPlaceLandingBinding;
 
 public class PickPlaceLanding extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityPickPlaceLandingBinding binding;
+
+    ImageButton HomeSegment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,15 @@ public class PickPlaceLanding extends FragmentActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        HomeSegment = findViewById(R.id.homeButton);
+        
+        HomeSegment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PickPlaceLanding.this, HomeActivity.class));
+            }
+        });
     }
 
     /**
