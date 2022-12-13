@@ -1,0 +1,26 @@
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\n    id 'com.android.application'\n    id 'com.google.gms.google-services'\n    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'\n}\n\nandroid {\n    namespace 'com.example.oncesecond'\n    compileSdk 33\n\n    defaultConfig {\n        applicationId \"com.example.oncesecond\"\n        minSdk 21\n        //noinspection OldTargetApi\n        targetSdk 33\n        versionCode 1\n        versionName \"1.0\"\n\n        testInstrumentationRunner \"android.support.test.runner.AndroidJUnitRunner\"\n    }\n\n    buildTypes {\n        release {\n            minifyEnabled false\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\n        }\n    }\n    compileOptions {\n        sourceCompatibility JavaVersion.VERSION_1_8\n        targetCompatibility JavaVersion.VERSION_1_8\n    }\n    buildFeatures {\n        viewBinding true\n    }\n    dataBinding{\n        enabled = true\n    }\n}\n\ndependencies {\n\n    //noinspection GradleCompatible\n    implementation 'com.android.support:appcompat-v7:28.0.0'\n    implementation 'com.android.support.constraint:constraint-layout:2.0.4'\n    implementation 'androidx.appcompat:appcompat:1.7.0-alpha01'\n    implementation 'com.google.android.gms:play-services-maps:18.1.0'\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'\n    implementation 'com.google.android.material:material:1.7.0'\n    testImplementation 'junit:junit:4.13.2'\n\n    //noinspection GradleCompatible\n    androidTestImplementation 'com.android.support.test:runner:1.0.2'\n    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'\n    implementation platform('com.google.firebase:firebase-bom:31.1.0')\n    implementation 'com.google.firebase:firebase-analytics'\n    implementation 'com.google.firebase:firebase-database'\n    implementation 'com.google.android.gms:play-services-location:21.0.1'\n//    implementation 'com.google.android.gms:play-services:12.0.1'\n//    implementation 'com.google.firebase:firebase-analytics-impl:16.3.0'\n\n    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'\n\n    // navigation\n    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'\n    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'\n    implementation 'com.google.android.material:material:1.7.0'\n    //noinspection GradleCompatible\n    implementation \"com.android.support:design:28.0.0\"\n\n    // for QR scanner\n//    implementation 'me.dm7.barcodescanner:zxing:1.9.13'\n//    implementation 'com.karumi:dexter:6.2.2'\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision f60f6e5d380bbe5785fb83befeaef7b19de50898)
++++ b/app/build.gradle	(date 1670841757062)
+@@ -58,14 +58,13 @@
+ //    implementation 'com.google.android.gms:play-services:12.0.1'
+ //    implementation 'com.google.firebase:firebase-analytics-impl:16.3.0'
+ 
+-    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+-
+     // navigation
+     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
+     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
+     implementation 'com.google.android.material:material:1.7.0'
+     //noinspection GradleCompatible
+     implementation "com.android.support:design:28.0.0"
++    implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
+ 
+     // for QR scanner
+ //    implementation 'me.dm7.barcodescanner:zxing:1.9.13'

@@ -21,6 +21,9 @@ public class Welcome extends AppCompatActivity {
     BiometricPrompt biometricPrompt;
     BiometricPrompt.PromptInfo promptInfo;
 
+    final Button signUpButton = findViewById(R.id.signUpButton);
+    final TextView loginNowButton = findViewById(R.id.loginButton);
+
     @SuppressWarnings("deprecation")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,9 +59,6 @@ public class Welcome extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Successfully Authenticated", Toast.LENGTH_SHORT).show();
 
 
-                final Button signUpButton = findViewById(R.id.signUpButton);
-                final TextView loginNowButton = findViewById(R.id.loginButton);
-
                 signUpButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -80,6 +80,23 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onAuthenticationFailed() {
                 super.onAuthenticationFailed();
+            }
+        });
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Welcome.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
+        loginNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login_intent = new Intent(Welcome.this, Login.class);
+                startActivity(login_intent);
             }
         });
 
