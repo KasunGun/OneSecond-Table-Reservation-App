@@ -72,21 +72,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onMyLocationChange(Location location) {
 //                    mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("It's Me!"));
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 13);
                     mMap.animateCamera(cameraUpdate);
 //                    locationManager.removeUpdates(this);
                 }
             });
         }
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(6, 79))
+                .position(new LatLng(54.574325349946896, -1.243021449428498))
                 .title("Shop One")).showInfoWindow();
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(7, 80))
+                .position(new LatLng(54.57059391490911, -1.227656711970975))
                 .title("Shop Two")).showInfoWindow();
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(6.5, 79.5))
+                .position(new LatLng(54.560392713406465, -1.2497971431898682))
                 .title("Shop Three")).showInfoWindow();
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(54.58849144328262, -1.2509724694643254))
+                .title("Shop Four")).showInfoWindow();
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
