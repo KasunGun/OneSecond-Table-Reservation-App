@@ -46,29 +46,21 @@
             android:alpha="0.5"
             >
 
-            <TextView
+            <Button
+                android:id="@+id/place_order"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Want to place an order?"
-                android:textColor="@color/white"
-                android:gravity="center"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Let us know which pub you are in"
-                android:textColor="@color/white"
-                android:layout_marginTop="10dp"
-                android:gravity="center"
-                />
+                android:layout_weight="1"
+                android:background="#0CFFFFFF"
+                android:text="Want to Place an Order"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/loginButton"
+            android:id="@+id/select_location"
             android:text="SELECT LOCATION"
             android:textColor="@color/white"
             android:background="#00D954"

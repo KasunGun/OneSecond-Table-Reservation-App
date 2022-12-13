@@ -3,14 +3,16 @@ package com.example.oncesecond;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.journeyapps.barcodescanner.CaptureActivity;
-import com.journeyapps.barcodescanner.ScanContract;
-import com.journeyapps.barcodescanner.ScanOptions;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class QRScanner extends AppCompatActivity {
 
@@ -29,25 +31,26 @@ public class QRScanner extends AppCompatActivity {
     }
 
     private void scanCode() {
-        ScanOptions options = new ScanOptions();
-        options.setPrompt("Volume up to flash on");
-        options.setBeepEnabled(true);
-        options.setOrientationLocked(true);
-        options.setCaptureActivity(CaptureAct.class);
-        barLauncher.launch(options);
+        IntentIntegrator intentIntegrator = new IntentIntegrator(this);
+        intentIntegrator.setPrompt("Scan QR Code");
+        intentIntegrator.setOrientationLocked(false);
+        intentIntegrator.initiateScan();
     }
 
-    ActivityResultLauncher<ScanOptions> barLauncher = registerForActivityResult(new ScanContract(), result -> {
-        if (result.getContents()!=null){
-            AlertDialog.Builder builder = new AlertDialog.Builder(QRScanner.this);
-            builder.setTitle("Result");
-            builder.setMessage(result.getContents());
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                };
-            }).show();
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (intentResult != null) {
+            if (intentResult.getContents() == null) {
+                Toast.makeText(getBaseContext(), "Cancelled", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getBaseContext(), intentResult.getContents(), Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(QRScanner.this, ManuActivity.class));
+                finish();
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
-    });
+    }
 }

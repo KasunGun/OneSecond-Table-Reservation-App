@@ -23,11 +23,12 @@ public class HomeLanding extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_landing);
 
-        bottomNavigationView = findViewById(R.id.homeLandingNavigation);
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
+//        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, homeFragment).commit();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, homeFragment).commit();
-
+//        bottomNavigationView.getMenu().findItem(R.id.homeBottomNav).setChecked(true);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -48,6 +49,7 @@ public class HomeLanding extends AppCompatActivity {
                 return false;
             }
         });
+        bottomNavigationView.setSelectedItemId(R.id.homeBottomNav);
 
     }
 }

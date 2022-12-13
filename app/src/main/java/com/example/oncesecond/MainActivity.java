@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,14 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView splash_image = findViewById(R.id.imageView);
-
-        splash_image.setOnClickListener(new View.OnClickListener() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
+            public void run() {
                 Intent intent = new Intent(MainActivity.this, Welcome.class);
                 startActivity(intent);
+                finish();
             }
-        });
+        }, 2000);
     }
 }

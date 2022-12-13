@@ -2,6 +2,7 @@ package com.example.oncesecond;
 
 import static androidx.databinding.DataBindingUtil.setContentView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +27,8 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    View view;
 
     public HomeFragment() {
 //        setContentView(R.layout.fragment_home);
@@ -61,6 +65,24 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        final Button selectLocation = view.findViewById(R.id.select_location);
+        final Button placeOrder = view.findViewById(R.id.place_order);
+
+        selectLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), MapsActivity.class));
+            }
+        });
+        placeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), QRScanner.class));
+            }
+        });
+
+        return view;
     }
 }
