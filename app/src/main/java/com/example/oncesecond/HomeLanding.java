@@ -1,10 +1,6 @@
 package com.example.oncesecond;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -19,19 +15,20 @@ public class HomeLanding extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     HomeFragment homeFragment = new HomeFragment();
-    HotelsFragment hotelsFragment = new HotelsFragment();
-    FinderFragment finderFragment = new FinderFragment();
     MenuFragment menuFragment = new MenuFragment();
+    CartFragment cartFragment = new CartFragment();
+    MyOrdersFragment myOrdersFragment = new MyOrdersFragment();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home_landing);
 
-        bottomNavigationView = findViewById(R.id.homeLandingNavigation);
+        bottomNavigationView = findViewById(R.id.bottomNavigation);
+//        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, homeFragment).commit();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, homeFragment).commit();
-
+//        bottomNavigationView.getMenu().findItem(R.id.homeBottomNav).setChecked(true);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
@@ -39,19 +36,20 @@ public class HomeLanding extends AppCompatActivity {
                     case R.id.homeBottomNav:
                         getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, homeFragment).commit();
                         return true;
-                    case R.id.finderBottomNav:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, finderFragment).commit();
-                        return true;
                     case R.id.menuBottomNav:
                         getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, menuFragment).commit();
                         return true;
-                    case R.id.hotelsBottomNav:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, hotelsFragment).commit();
+                    case R.id.cartBottomNav:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, cartFragment).commit();
+                        return true;
+                    case R.id.myOrdersBottomNav:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.homeLandingNavigation, myOrdersFragment).commit();
                         return true;
                 }
                 return false;
             }
         });
+        bottomNavigationView.setSelectedItemId(R.id.homeBottomNav);
 
     }
 }

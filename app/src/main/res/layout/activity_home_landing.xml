@@ -22,20 +22,31 @@
         android:id='@+id/bottomNavigation'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FBF6F6"
+        app:backgroundTint="#FAF9F9"
+        app:itemIconTint="@color/black"
+        app:itemRippleColor="#FFFFFF"
+        app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="#FFFFFF"
-        app:menu="@menu/bottom_nav_menu"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/homeLandingNavigation"
+        app:menu="@menu/bottom_nav_menu" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/homeLandingNavigation"
-        android:layout_width="409dp"
-        android:layout_height="673dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

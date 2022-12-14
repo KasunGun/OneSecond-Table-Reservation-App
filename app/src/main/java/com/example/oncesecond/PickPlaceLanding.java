@@ -1,33 +1,67 @@
 package com.example.oncesecond;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 
-import android.os.Bundle;
-
+import com.example.oncesecond.databinding.ActivityPickPlaceLandingBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.example.oncesecond.databinding.ActivityPickPlaceLandingBinding;
 
-public class PickPlaceLanding extends FragmentActivity implements OnMapReadyCallback {
+public class PickPlaceLanding extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityPickPlaceLandingBinding binding;
 
+    ImageButton HomeSegment;
+    ImageButton QRScannerButton;
+    ImageButton HotelViewButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pick_place_landing);
 
-        binding = ActivityPickPlaceLandingBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+//        binding = ActivityPickPlaceLandingBinding.inflate(getLayoutInflater());
+//        setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+//        HomeSegment = findViewById(R.id.homeButton);
+//        QRScannerButton = findViewById(R.id.menuButton);
+//        HotelViewButton = findViewById(R.id.hotelsButton);
+
+//        HomeSegment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(PickPlaceLanding.this, HomeActivity.class));
+//            }
+//        });
+//
+//        QRScannerButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(PickPlaceLanding.this, QRScanner.class));
+//            }
+//        });
+//
+//        HotelViewButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(PickPlaceLanding.this, HotelView.class));
+//            }
+//        });
     }
 
     /**

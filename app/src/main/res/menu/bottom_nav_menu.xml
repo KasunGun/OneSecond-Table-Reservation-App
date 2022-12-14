@@ -7,18 +7,16 @@
         android:id="@+id/homeBottomNav"
         />
     <item
-        android:title="Finder"
-        android:icon="@drawable/ic_baseline_add_location_24"
-        android:id="@+id/finderBottomNav"
-        />
-    <item
-        android:title="Menu"
-        android:icon="@drawable/ic_baseline_menu_book_24"
         android:id="@+id/menuBottomNav"
-        />
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="Menu" />
     <item
-        android:title="Hotels"
-        android:icon="@drawable/ic_baseline_local_hotel_24"
-        android:id="@+id/hotelsBottomNav"
+        android:id="@+id/cartBottomNav"
+        android:icon="@drawable/material_symbols_shopping_cart_outline_rounded"
+        android:title="Cart" />
+    <item
+        android:title="My Orders"
+        android:icon="@drawable/ph_cooking_pot_bold"
+        android:id="@+id/myOrdersBottomNav"
         />
 </menu>
