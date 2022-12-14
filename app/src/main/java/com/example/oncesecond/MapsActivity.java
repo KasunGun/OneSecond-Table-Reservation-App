@@ -16,6 +16,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -72,21 +73,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onMyLocationChange(Location location) {
 //                    mMap.addMarker(new MarkerOptions().position(new LatLng(location.getLatitude(), location.getLongitude())).title("It's Me!"));
                     LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 10);
+                    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 13);
                     mMap.animateCamera(cameraUpdate);
 //                    locationManager.removeUpdates(this);
                 }
             });
         }
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(6, 79))
-                .title("Shop One")).showInfoWindow();
+                .position(new LatLng(54.574325349946896, -1.243021449428498))
+                .title("OneSecond").snippet("228, Linthrope Road, Middlesbrough").anchor(0.5f, 0.5f)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.onesecond_logo_new__01))).showInfoWindow();
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(7, 80))
-                .title("Shop Two")).showInfoWindow();
+                .position(new LatLng(54.57059391490911, -1.227656711970975))
+                .title("OneSecond").snippet("19 Newport Cresent, Middlesbrough").anchor(0.5f, 0.5f)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.onesecond_logo_new__01))).showInfoWindow();
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(6.5, 79.5))
-                .title("Shop Three")).showInfoWindow();
+                .position(new LatLng(54.560392713406465, -1.2497971431898682))
+                .title("OneSecond").snippet("4 Bridge Road, Stockton-on-Tees").anchor(0.5f, 0.5f)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.onesecond_logo_new__01))).showInfoWindow();
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(54.58849144328262, -1.2509724694643254))
+                .title("OneSecond").snippet("59 High Street, Norton").anchor(0.5f, 0.5f)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.onesecond_logo_new__01))).showInfoWindow();
 
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
