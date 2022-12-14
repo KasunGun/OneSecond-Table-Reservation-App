@@ -22,7 +22,11 @@
         android:id='@+id/bottomNavigation'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:background="#FBF6F6"
+        app:backgroundTint="#FAF9F9"
+        app:itemIconTint="@color/black"
+        app:itemRippleColor="#FFFFFF"
+        app:itemTextColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
